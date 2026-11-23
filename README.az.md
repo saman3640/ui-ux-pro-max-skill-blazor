@@ -196,7 +196,7 @@ Hər qaydaya bunlar daxildir:
 - **194 rəng palitrası** - 194 məhsul növü ilə 1:1 uyğunlaşdırılmış sahəyə xas palitralar
 - **74 şrift cütü** - Google Fonts import-ları ilə seçilmiş tipoqrafiya kombinasiyaları
 - **25 qrafik növü** - Dashboard və analitika üçün tövsiyələr
-- **22 texnologiya stack-i** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform
+- **23 texnologiya stack-i** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform, Blazor
 - **141 UX qaydası** - Ən yaxşı təcrübələr, anti-pattern-lər, əlçatanlıq qaydaları, davamlı mətn düzülüşü, yığcam etiketlər və ləğv edilə bilən interaksiyalar
 - **194 əsaslandırma qaydası** - Sahəyə xas dizayn sistemi yaradılması (v2.0-da YENİ)
 
@@ -232,7 +232,7 @@ Tam taksonomiya və mənşə məlumatlı metadata üçün [`styles.csv`](src/ui-
 * **Tam açıq mənbə:** Fərdi developer-lər, hobbi layihələri və standart layihələr üçün idealdır.
 * **Əsas UI/UX intellekti:** 80 axtarıla bilən UI üslubuna (51-si aktiv), 194 məhsul növünə, rəng palitralarına və seçilmiş şrift cütlərinə tam çıxış.
 * **Ağıllı tövsiyələr:** Dəqiq dizayn uyğunluğu üçün daxili BM25 axtarış mühərriki.
-* **Çoxplatformalı dəstək:** 22 əsas framework üçün stack-ə xas təlimatlar (React, Vue, Tailwind, iOS, Android və s.).
+* **Çoxplatformalı dəstək:** 23 əsas framework üçün stack-ə xas təlimatlar (React, Vue, Tailwind, iOS, Android və s.).
 * **Dizayn sisteminin yaradılması:** CLI vasitəsilə uyğunlaşdırılmış UI qaydalarını, pattern-ləri və məntiqi dərhal yaradın.
 
 ### 🟡 Premium versiya
@@ -413,6 +413,7 @@ Skill aşağıdakılar üçün stack-ə xas təlimatlar təqdim edir:
 | **PHP** | Laravel (Blade, Livewire, Inertia.js) |
 | **Digər web** | Svelte, Astro, Three.js |
 | **Desktop** | JavaFX, WPF, WinUI 3, Avalonia, Uno Platform, UWP |
+| **Blazor** | Blazor Web App (.NET 8+), standalone Blazor WebAssembly, Blazor Server (legacy), .NET MAUI Blazor Hybrid |
 | **iOS** | SwiftUI |
 | **Android** | Jetpack Compose |
 | **Çoxplatformalı** | React Native, Flutter |

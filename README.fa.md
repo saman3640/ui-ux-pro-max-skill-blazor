@@ -199,7 +199,7 @@
 - **۱۹۴ پالت رنگ:** پالت‌های اختصاصی هر صنعت که به‌صورت یک‌به‌یک با ۱۹۴ نوع محصول هماهنگ شده‌اند
 - **۷۴ ترکیب فونت:** ترکیب‌های گزینش‌شدهٔ تایپوگرافی همراه با امکان واردکردن فونت از Google Fonts
 - **۲۵ نوع نمودار:** پیشنهادهایی برای داشبوردها و تحلیل داده
-- **۲۲ پشتهٔ فناوری:** React، Next.js، Astro، Vue، Nuxt.js، Nuxt UI، Svelte، SwiftUI، React Native، Flutter، HTML+Tailwind، shadcn/ui، Jetpack Compose، Angular، Laravel، Three.js، JavaFX، WPF، WinUI 3، UWP، Avalonia و Uno Platform
+- **۲۳ پشتهٔ فناوری:** React، Next.js، Astro، Vue، Nuxt.js، Nuxt UI، Svelte، SwiftUI، React Native، Flutter، HTML+Tailwind، shadcn/ui، Jetpack Compose، Angular، Laravel، Three.js، JavaFX، WPF، WinUI 3، UWP، Avalonia، Uno Platform و Blazor
 - **۱۱۹ راهنمای UX:** بهترین روش‌ها، الگوهای نامناسب، قواعد دسترس‌پذیری، چیدمان مقاوم متن، برچسب‌های فشرده و تعامل‌های قابل لغو
 - **۱۹۴ قانون استدلال:** تولید سیستم طراحی متناسب با صنعت (قابلیت جدید در نسخهٔ 2.0)
 
@@ -419,6 +419,7 @@ modes. Summarize changed files and any remaining hard-coded styles.
 | **PHP** | Laravel (Blade، Livewire، Inertia.js) |
 | **سایر فناوری‌های وب** | Svelte، Astro، Three.js |
 | **دسکتاپ** | JavaFX، WPF، WinUI 3، Avalonia، Uno Platform، UWP |
+| **Blazor** | Blazor Web App (.NET 8+)، standalone Blazor WebAssembly، Blazor Server (legacy)، .NET MAUI Blazor Hybrid |
 | **iOS** | SwiftUI |
 | **Android** | Jetpack Compose |
 | **چندسکویی** | React Native، Flutter |

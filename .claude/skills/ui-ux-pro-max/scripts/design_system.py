@@ -940,6 +940,10 @@ def format_markdown(design_system: dict) -> str:
     lines.append("- [ ] Responsive: 375px, 768px, 1024px, 1440px")
     lines.append("")
 
+    if design_system.get("implementation_framework") == "blazor":
+        from blazor_profile import format_blazor_implementation
+        lines.append(format_blazor_implementation(design_system))
+
     return "\n".join(lines)
 
 
@@ -1108,7 +1112,7 @@ def generate_design_system(query: str, project_name: str = None, output_format: 
                            persist: bool = False, page: str = None, output_dir: str = None,
                            variance: int = None, motion: int = None, density: int = None,
                            force: bool = False, preview: bool = False,
-                           token_format: str = None) -> dict:
+                           token_format: str = None, framework: str = None) -> dict:
     """
     Main entry point for design system generation.
 
@@ -1129,6 +1133,10 @@ def generate_design_system(query: str, project_name: str = None, output_format: 
                document and persist writes tokens.json (and tokens.css for css)
                next to MASTER.md. Tokens are master-level only; --page does not
                emit page-specific token files.
+        framework: Optional implementation profile. "blazor" appends a
+               Blazor-specific implementation section (app model detection,
+               token placement, CSS isolation, component-library theming, RTL,
+               verification) without changing any visual recommendation.
 
     Returns:
         dict with keys: "text" (formatted design system or token string),
@@ -1139,6 +1147,15 @@ def generate_design_system(query: str, project_name: str = None, output_format: 
     """
     generator = DesignSystemGenerator()
     design_system = generator.generate(query, project_name, variance=variance, motion=motion, density=density)
+
+    if framework:
+        from blazor_profile import BLAZOR_FRAMEWORK
+        if framework != BLAZOR_FRAMEWORK:
+            raise ValueError(
+                f"Unknown implementation framework: {framework}. "
+                f"Available: {BLAZOR_FRAMEWORK}"
+            )
+        design_system["implementation_framework"] = framework
 
     tokens = build_design_tokens(design_system) if token_format else None
 
@@ -1164,6 +1181,9 @@ def generate_design_system(query: str, project_name: str = None, output_format: 
         text = format_markdown(design_system)
     else:
         text = format_ascii_box(design_system)
+        if framework == "blazor":
+            from blazor_profile import format_blazor_implementation
+            text = text + "\n\n" + format_blazor_implementation(design_system)
 
     return {
         "text": text,
@@ -1612,6 +1632,13 @@ def format_master_md(design_system: dict, token_format: str = None) -> str:
     lines.append("- [ ] Responsive: 375px, 768px, 1024px, 1440px")
     lines.append("- [ ] No content hidden behind fixed navbars")
     lines.append("- [ ] No horizontal scroll on mobile")
+    lines.append("")
+
+    if design_system.get("implementation_framework") == "blazor":
+        lines.append("---")
+        lines.append("")
+        from blazor_profile import format_blazor_implementation
+        lines.append(format_blazor_implementation(design_system))
     lines.append("")
     
     return "\n".join(lines)

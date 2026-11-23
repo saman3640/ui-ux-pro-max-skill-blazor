@@ -83,7 +83,8 @@ class TestThresholdGate(unittest.TestCase):
             data = root / "src/ui-ux-pro-max/data"
             runtime.mkdir(parents=True)
             data.mkdir(parents=True)
-            for name in ("core.py", "design_system.py", "reasoning_contract.py"):
+            for name in ("core.py", "design_system.py", "blazor_profile.py",
+                         "reasoning_contract.py"):
                 (runtime / name).write_text(name, encoding="utf-8")
             (data / "styles.csv").write_text("No,Style\n1,Test\n", encoding="utf-8")
             evaluator.ROOT, evaluator.RUNTIME_DIR, evaluator.DATA_DIR = root, runtime, data

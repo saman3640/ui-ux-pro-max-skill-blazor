@@ -118,6 +118,7 @@ STACK_CONFIG = {
     "avalonia":         {"file": "stacks/avalonia.csv"},
     "uno":              {"file": "stacks/uno.csv"},
     "uwp":              {"file": "stacks/uwp.csv"},
+    "blazor":           {"file": "stacks/blazor.csv"},
 }
 
 # Common columns for all stacks
@@ -153,6 +154,9 @@ STACK_CURRENT_VERSIONS = {
     "javafx": (26,),
     "threejs": (0, 185),
     "laravel": (13,),
+    # Blazor Web Apps, standalone WebAssembly, Server and MAUI Hybrid share the
+    # .NET 8+ component model; .NET 6/7 hosting is curated as legacy rows.
+    "blazor": (8,),
 }
 LEGACY_ONLY_STACKS = frozenset({"uwp"})
 STACK_CURRENT_APPLICABILITY = {
@@ -178,6 +182,7 @@ STACK_CURRENT_APPLICABILITY = {
     "javafx": "javafx 26",
     "threejs": "threejs 0.185.1",
     "laravel": "laravel 13.x",
+    "blazor": "blazor 8+",
 }
 
 _STACK_QUERY_NAMES = {
@@ -199,6 +204,7 @@ _STACK_QUERY_NAMES = {
     "javafx": r"javafx",
     "threejs": r"three(?:\.js|js)?",
     "laravel": r"laravel",
+    "blazor": r"blazor(?:(?:\s*web\s*app)|(?:\s*wasm)|(?:\s*server)|(?:\s*hybrid))?",
 }
 
 AVAILABLE_STACKS = list(STACK_CONFIG.keys())

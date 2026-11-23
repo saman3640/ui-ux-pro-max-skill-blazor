@@ -35,6 +35,7 @@ def runtime_fingerprint():
     paths = [
         RUNTIME_DIR / "core.py",
         RUNTIME_DIR / "design_system.py",
+        RUNTIME_DIR / "blazor_profile.py",
         RUNTIME_DIR / "reasoning_contract.py",
     ]
     paths += sorted(DATA_DIR.rglob("*.csv"))

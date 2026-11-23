@@ -167,7 +167,7 @@ Setiap aturan mencakup:
 - **194 Palet Warna** - Palet khusus industri yang selaras 1:1 dengan 194 jenis produk
 - **74 Pasangan Font** - Kombinasi tipografi pilihan dengan import Google Fonts
 - **25 Jenis Chart** - Rekomendasi untuk dashboard dan analitik
-- **22 Tech Stack** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform
+- **23 Tech Stack** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform, Blazor
 - **141 Panduan UX** - Best practice, anti-pattern, aturan aksesibilitas, layout teks yang tangguh, label ringkas, dan interaksi yang dapat dibatalkan
 - **194 Aturan Penalaran** - Pembuatan design system khusus industri (BARU di v2.0)
 
@@ -212,7 +212,7 @@ Banyak pengguna bertanya mengenai perbedaan antara versi open-source dan premium
 * **Sepenuhnya Open Source:** Cocok untuk developer individu, hobbyist, dan proyek standar.
 * **Kecerdasan UI/UX Inti:** Akses penuh ke 80 gaya UI yang dapat dicari (51 aktif), 194 jenis produk, palet warna, dan pasangan font pilihan.
 * **Rekomendasi Cerdas:** Mesin pencarian BM25 bawaan untuk pencocokan desain yang sangat akurat.
-* **Dukungan Cross-Platform:** Panduan khusus stack yang mendukung 22 framework utama (React, Vue, Tailwind, iOS, Android, dll.).
+* **Dukungan Cross-Platform:** Panduan khusus stack yang mendukung 23 framework utama (React, Vue, Tailwind, iOS, Android, dll.).
 * **Pembuatan Design System:** Buat aturan UI, pola, dan logika yang disesuaikan secara instan melalui CLI.
 
 ### 🟡 Versi Premium
@@ -361,6 +361,7 @@ Skill menyediakan panduan khusus stack untuk:
 | **PHP** | Laravel (Blade, Livewire, Inertia.js) |
 | **Web Lainnya** | Svelte, Astro, Three.js |
 | **Desktop** | JavaFX, WPF, WinUI 3, Avalonia, Uno Platform, UWP |
+| **Blazor** | Blazor Web App (.NET 8+), standalone Blazor WebAssembly, Blazor Server (legacy), .NET MAUI Blazor Hybrid |
 | **iOS** | SwiftUI |
 | **Android** | Jetpack Compose |
 | **Cross-Platform** | React Native, Flutter |

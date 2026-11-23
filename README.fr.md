@@ -196,7 +196,7 @@ Chaque règle comprend :
 - **194 palettes de couleurs** - Palettes sectorielles alignées 1:1 sur les 194 types de produits
 - **74 associations de polices** - Combinaisons typographiques sélectionnées, avec imports Google Fonts
 - **25 types de graphiques** - Recommandations pour tableaux de bord et analytique
-- **22 stacks techniques** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform
+- **23 stacks techniques** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform, Blazor
 - **141 recommandations UX** - Bonnes pratiques, anti-patterns, règles d'accessibilité, mise en page de texte robuste, libellés compacts et interactions annulables. Voir [Raccourcis Entrée compatibles IME](docs/ime-composition.md).
 - **194 règles de raisonnement** - Génération de design system spécifique à chaque secteur (NOUVEAU en v2.0)
 
@@ -232,7 +232,7 @@ De nombreux utilisateurs nous interrogent sur les différences entre la version 
 * **Entièrement open source :** Idéale pour les développeurs indépendants, les amateurs et les projets classiques.
 * **Intelligence UI/UX de base :** Accès complet aux 80 styles d'interface consultables (51 actifs), aux 194 types de produits, aux palettes de couleurs et aux associations de polices sélectionnées.
 * **Recommandations intelligentes :** Moteur de recherche BM25 intégré pour des correspondances de design très précises.
-* **Prise en charge multiplateforme :** Recommandations spécifiques à 22 frameworks majeurs (React, Vue, Tailwind, iOS, Android, etc.).
+* **Prise en charge multiplateforme :** Recommandations spécifiques à 23 frameworks majeurs (React, Vue, Tailwind, iOS, Android, etc.).
 * **Génération de design system :** Générez instantanément des règles d'interface, des patterns et une logique sur mesure via la CLI.
 
 ### 🟡 Version Premium
@@ -415,6 +415,7 @@ Le skill fournit des recommandations spécifiques pour :
 | **PHP** | Laravel (Blade, Livewire, Inertia.js) |
 | **Autre (Web)** | Svelte, Astro, Three.js |
 | **Desktop** | JavaFX, WPF, WinUI 3, Avalonia, Uno Platform, UWP |
+| **Blazor** | Blazor Web App (.NET 8+), standalone Blazor WebAssembly, Blazor Server (legacy), .NET MAUI Blazor Hybrid |
 | **iOS** | SwiftUI |
 | **Android** | Jetpack Compose |
 | **Multiplateforme** | React Native, Flutter |

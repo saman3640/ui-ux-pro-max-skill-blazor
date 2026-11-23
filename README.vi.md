@@ -168,7 +168,7 @@ Mỗi quy tắc bao gồm:
 - **194 bảng màu** — Bảng màu theo ngành, tương ứng 1:1 với 194 loại sản phẩm
 - **74 cặp phông chữ** — Các tổ hợp kiểu chữ được tuyển chọn, kèm câu lệnh import Google Fonts
 - **25 loại biểu đồ** — Đề xuất cho dashboard và phân tích dữ liệu
-- **22 tech stack** — React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform
+- **23 tech stack** — React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform, Blazor
 - **141 hướng dẫn UX** — Thực hành tốt, anti-pattern, quy tắc khả năng tiếp cận, bố cục văn bản bền vững, nhãn gọn và tương tác có thể hủy
 - **194 quy tắc suy luận** — Tạo hệ thống thiết kế dành riêng cho từng ngành (MỚI trong v2.0)
 
@@ -205,7 +205,7 @@ Nhiều người dùng hỏi về sự khác biệt giữa phiên bản mã ngu�
 - **Hoàn toàn mã nguồn mở:** Phù hợp với lập trình viên cá nhân, người làm dự án sở thích và các dự án thông thường.
 - **Tri thức UI/UX cốt lõi:** Truy cập đầy đủ 80 phong cách UI có thể tìm kiếm (51 đang hoạt động), 194 loại sản phẩm, bảng màu và các cặp phông chữ được tuyển chọn.
 - **Đề xuất thông minh:** Bộ máy tìm kiếm BM25 tích hợp giúp đối sánh thiết kế với độ chính xác cao.
-- **Hỗ trợ đa nền tảng:** Hướng dẫn riêng theo stack, hỗ trợ 22 framework lớn (React, Vue, Tailwind, iOS, Android, v.v.).
+- **Hỗ trợ đa nền tảng:** Hướng dẫn riêng theo stack, hỗ trợ 23 framework lớn (React, Vue, Tailwind, iOS, Android, v.v.).
 - **Tạo hệ thống thiết kế:** Tạo tức thì các quy tắc UI, mẫu và logic phù hợp thông qua CLI.
 
 ### 🟡 Phiên bản Cao cấp
@@ -354,6 +354,7 @@ Kỹ năng cung cấp hướng dẫn riêng cho từng stack:
 | **PHP** | Laravel (Blade, Livewire, Inertia.js) |
 | **Web khác** | Svelte, Astro, Three.js |
 | **Máy tính để bàn** | JavaFX, WPF, WinUI 3, Avalonia, Uno Platform, UWP |
+| **Blazor** | Blazor Web App (.NET 8+), standalone Blazor WebAssembly, Blazor Server (legacy), .NET MAUI Blazor Hybrid |
 | **iOS** | SwiftUI |
 | **Android** | Jetpack Compose |
 | **Đa nền tảng** | React Native, Flutter |

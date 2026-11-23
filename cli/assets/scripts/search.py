@@ -8,10 +8,11 @@ Usage: python search.py "<query>" [--domain <domain>] [--stack <stack>] [--max-r
        python search.py "<query>" --design-system --persist [-p "Project Name"] --output-dir "<project-root>" [--page "dashboard"]
        python search.py "<query>" --design-system --persist --preview [-p "Project Name"] --output-dir "<project-root>"
        python search.py "<query>" --design-system --variance 8 --motion 9 --density 7
+       python search.py "<query>" --design-system --framework blazor
 
 Domains: style, color, chart, landing, product, ux, typography, google-fonts, icons, gsap, react, web
 Stacks: react, nextjs, vue, svelte, astro, swiftui, react-native, flutter, nuxtjs, nuxt-ui,
-        html-tailwind, shadcn, jetpack-compose, threejs, angular, laravel
+        html-tailwind, shadcn, jetpack-compose, threejs, angular, laravel, blazor
 
 Design dials (1-10, only with --design-system):
   --variance   DESIGN_VARIANCE: 1=centered/minimal, 10=bold/asymmetric
@@ -136,6 +137,10 @@ if __name__ == "__main__":
     parser.add_argument("--preview", action="store_true", help="Write a self-contained preview.html of the generated design system (requires --design-system)")
     parser.add_argument("--tokens", choices=["dtcg", "css"], default=None,
                         help="Export design tokens as W3C DTCG JSON or CSS variables (requires --design-system)")
+    parser.add_argument("--framework", choices=["blazor"], default=None,
+                        help="Append implementation-profile guidance to the design system "
+                             "(--design-system only). blazor adds app-model detection, token "
+                             "placement, CSS isolation, component-library theming and RTL checks")
     # Design dials (1-10), only applied with --design-system
     parser.add_argument("--variance", type=int, choices=range(1, 11), metavar="1-10", help="DESIGN_VARIANCE dial: 1=centered/minimal, 10=bold/asymmetric (only with --design-system)")
     parser.add_argument("--motion", type=int, choices=range(1, 11), metavar="1-10", help="MOTION_INTENSITY dial: 1=subtle, 10=complex; pulls a matching GSAP snippet from motion.csv (only with --design-system)")
@@ -147,6 +152,8 @@ if __name__ == "__main__":
         parser.error("--preview requires --design-system")
     if args.tokens and not args.design_system:
         parser.error("--tokens requires --design-system")
+    if args.framework and not args.design_system:
+        parser.error("--framework requires --design-system")
 
     # Design system takes priority
     if args.design_system:
@@ -174,6 +181,7 @@ if __name__ == "__main__":
             force=args.force,
             preview=args.preview,
             token_format=args.tokens,
+            framework=args.framework,
         )
 
         if args.json:

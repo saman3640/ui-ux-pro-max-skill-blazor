@@ -1,11 +1,11 @@
 ---
 name: ui-ux-pro-max
-description: "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 194 product palettes and reasoning profiles, 74 font pairings, 141 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks."
+description: "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 194 product palettes and reasoning profiles, 74 font pairings, 141 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 23 stacks."
 ---
 
 # UI/UX Pro Max - Design Intelligence
 
-Searchable local UI/UX guidance: 80 searchable styles (51 active), 194 product palettes and exact reasoning profiles, 74 font pairings, 141 UX guidelines, 105 curated icons, 17 GSAP presets, 25 chart types, and 22 technology stacks.
+Searchable local UI/UX guidance: 80 searchable styles (51 active), 194 product palettes and exact reasoning profiles, 74 font pairings, 141 UX guidelines, 105 curated icons, 17 GSAP presets, 25 chart types, and 23 technology stacks.
 
 ## When to Apply
 
@@ -70,7 +70,7 @@ Extract from the user request:
 - **Product type**: SaaS, e-commerce, portfolio, dashboard, entertainment, tool, productivity, or hybrid
 - **Target audience & context**: age group, usage context (commute, leisure, work)
 - **Style keywords**: playful, vibrant, minimal, dark mode, content-first, immersive, etc.
-- **Stack**: detect from the project — check `package.json` deps (react/next/vue/svelte/nuxt/@angular), `pubspec.yaml` (Flutter), `*.xcodeproj`/`Package.swift` (SwiftUI), `composer.json` (Laravel), or React Native markers (`app.json` + `react-native` dep). If nothing is detectable and stack guidance matters, ask the user. **Never assume a stack** — a hardcoded default silently misroutes every recommendation.
+- **Stack**: detect from the project — check `package.json` deps (react/next/vue/svelte/nuxt/@angular), `*.csproj` with the Blazor SDK plus `*.razor` files (Blazor), `pubspec.yaml` (Flutter), `*.xcodeproj`/`Package.swift` (SwiftUI), `composer.json` (Laravel), or React Native markers (`app.json` + `react-native` dep). For Blazor, also record the `TargetFramework` and whether the project is a Blazor Web App, standalone WebAssembly, legacy Blazor Server or .NET MAUI Blazor Hybrid. If nothing is detectable and stack guidance matters, ask the user. **Never assume a stack** — a hardcoded default silently misroutes every recommendation.
 
 ### Step 2: Generate Design System (REQUIRED for new pages/projects)
 
@@ -189,7 +189,25 @@ Domain is auto-detected from the query if `--domain` is omitted — but auto-det
 python "${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py" "<keyword>" --stack <stack>
 ```
 
-**Available stacks:** `react`, `nextjs`, `vue`, `svelte`, `astro`, `nuxtjs`, `nuxt-ui`, `angular`, `laravel`, `swiftui`, `react-native`, `flutter`, `jetpack-compose`, `html-tailwind`, `shadcn`, `threejs`, `javafx`, `wpf`, `winui`, `avalonia`, `uno`, `uwp`. Use the stack detected in Step 1.
+**Available stacks:** `react`, `nextjs`, `vue`, `svelte`, `astro`, `nuxtjs`, `nuxt-ui`, `angular`, `laravel`, `swiftui`, `react-native`, `flutter`, `jetpack-compose`, `html-tailwind`, `shadcn`, `threejs`, `javafx`, `wpf`, `winui`, `avalonia`, `uno`, `uwp`, `blazor`. Use the stack detected in Step 1.
+
+**Blazor implementation rules:**
+
+```bash
+python "${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py" "professional enterprise dashboard responsive layout" --stack blazor
+python "${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py" "MudBlazor theme palette dark mode" --stack blazor
+python "${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py" "Radzen data grid server paging filter" --stack blazor
+python "${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py" "enterprise CRM dashboard" --design-system --framework blazor --tokens css
+```
+
+Before changing a Blazor UI:
+
+1. Inspect the solution, `*.csproj` `TargetFramework`, `Program.cs`, `App.razor`, `Routes.razor` and `_Imports.razor`.
+2. Identify the app model — Blazor Web App (static SSR / Interactive Server / Interactive WebAssembly / Interactive Auto), standalone WebAssembly, legacy Blazor Server, or .NET MAUI Blazor Hybrid. Never apply render modes to MAUI Hybrid or to legacy Blazor Server projects.
+3. Read installed `PackageReference` entries and `wwwroot` styles; use the existing CSS framework and component library (MudBlazor, Radzen, Fluent UI, Syncfusion, Telerik, DevExpress, Blazorise) and never add a second library for one component.
+4. Reuse existing CSS custom properties, `.razor.css` files, layouts and shared components. Never emit React hooks, JSX, Vue directives or Angular templates in `.razor` files.
+5. Verify responsiveness at 375/390/768/1024/1280/1440, keyboard access, dialog focus, RTL via `dir="rtl"` with logical CSS properties, dark mode and render-mode behavior; run `dotnet build` and existing tests.
+6. Preserve business logic, APIs, authentication, authorization and component contracts; prefer incremental changes over rewrites.
 
 ---
 

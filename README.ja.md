@@ -197,7 +197,7 @@ v2.0 の目玉機能は **Design System Generator** です。プロジェクト�
 - **194 のカラーパレット** - 194 のプロダクトタイプと 1:1 で対応した業界別のパレット
 - **74 のフォントペアリング** - Google Fonts のインポート付きで厳選したタイポグラフィの組み合わせ
 - **25 のチャートタイプ** - ダッシュボードや分析向けの推奨
-- **22 の技術スタック** - React、Next.js、Astro、Vue、Nuxt.js、Nuxt UI、Svelte、SwiftUI、React Native、Flutter、HTML+Tailwind、shadcn/ui、Jetpack Compose、Angular、Laravel、Three.js、JavaFX、WPF、WinUI 3、UWP、Avalonia、Uno Platform
+- **23 の技術スタック** - React、Next.js、Astro、Vue、Nuxt.js、Nuxt UI、Svelte、SwiftUI、React Native、Flutter、HTML+Tailwind、shadcn/ui、Jetpack Compose、Angular、Laravel、Three.js、JavaFX、WPF、WinUI 3、UWP、Avalonia、Uno Platform、Blazor
 - **141 の UX ガイドライン** - ベストプラクティス、アンチパターン、アクセシビリティのルール、崩れにくいテキストレイアウト、コンパクトなラベル、キャンセル可能なインタラクション
 - **194 の推論ルール** - 業界別のデザインシステム生成（v2.0 の新機能）
 
@@ -242,7 +242,7 @@ Active のセットには、43 の汎用的なビジュアルファミリー、2
 * **完全なオープンソース：** 個人の開発者、趣味のプロジェクト、一般的なプロジェクトに最適です。
 * **コアの UI/UX インテリジェンス：** 80 の検索可能な UI スタイル（うち 51 が有効）、194 のプロダクトタイプ、カラーパレット、厳選したフォントペアリングをすべて利用できます。
 * **スマートな推奨：** 内蔵の BM25 検索エンジンにより、非常に精度の高いデザインのマッチングを行います。
-* **クロスプラットフォーム対応：** 22 の主要なフレームワーク（React、Vue、Tailwind、iOS、Android など）に対応したスタック別のガイドライン。
+* **クロスプラットフォーム対応：** 23 の主要なフレームワーク（React、Vue、Tailwind、iOS、Android など）に対応したスタック別のガイドライン。
 * **デザインシステム生成：** CLI から、ニーズに合わせた UI のルール、パターン、ロジックをすぐに生成できます。
 
 ### 🟡 プレミアム版
@@ -424,6 +424,7 @@ modes. Summarize changed files and any remaining hard-coded styles.
 | **PHP** | Laravel (Blade、Livewire、Inertia.js) |
 | **その他の Web** | Svelte、Astro、Three.js |
 | **デスクトップ** | JavaFX、WPF、WinUI 3、Avalonia、Uno Platform、UWP |
+| **Blazor** | Blazor Web App (.NET 8+)、standalone Blazor WebAssembly、Blazor Server (legacy)、.NET MAUI Blazor Hybrid |
 | **iOS** | SwiftUI |
 | **Android** | Jetpack Compose |
 | **クロスプラットフォーム** | React Native、Flutter |

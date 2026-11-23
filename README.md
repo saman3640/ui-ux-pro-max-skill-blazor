@@ -196,7 +196,7 @@ Each rule includes:
 - **194 Color Palettes** - Industry-specific palettes aligned 1:1 with the 194 product types
 - **74 Font Pairings** - Curated typography combinations with Google Fonts imports
 - **25 Chart Types** - Recommendations for dashboards and analytics
-- **22 Tech Stacks** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform
+- **23 Tech Stacks** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose, Angular, Laravel, Three.js, JavaFX, WPF, WinUI 3, UWP, Avalonia, Uno Platform, Blazor
 - **141 UX Guidelines** - Best practices, anti-patterns, accessibility rules, resilient text layout, compact labels, cancellable interactions, web maps (attribution, map accessibility, choropleths, popups, clustering), and form error handling (clearing fixed errors, keeping input, unsaved-change warnings, undo, dialog focus). See [IME-safe Enter shortcuts](docs/ime-composition.md).
 - **194 Reasoning Rules** - Industry-specific design system generation (NEW in v2.0)
 
@@ -241,7 +241,7 @@ Many users ask about the differences between the open-source and premium version
 * **Fully Open Source:** Perfect for individual developers, hobbyists, and standard projects.
 * **Core UI/UX Intelligence:** Full access to 80 searchable UI styles (51 active), 194 product types, color palettes, and curated font pairings.
 * **Smart Recommendations:** Built-in BM25 search engine for highly accurate design matching.
-* **Cross-Platform Support:** Stack-specific guidelines supporting 22 major frameworks (React, Vue, Tailwind, iOS, Android, etc.).
+* **Cross-Platform Support:** Stack-specific guidelines supporting 23 major frameworks (React, Vue, Tailwind, Blazor, iOS, Android, etc.).
 * **Design System Generation:** Instantly generate tailored UI rules, patterns, and logic via CLI.
 
 ### 🟡 Premium Version
@@ -425,11 +425,65 @@ The skill provides stack-specific guidelines for:
 | **PHP** | Laravel (Blade, Livewire, Inertia.js) |
 | **Other Web** | Svelte, Astro, Three.js |
 | **Desktop** | JavaFX, WPF, WinUI 3, Avalonia, Uno Platform, UWP |
+| **Blazor** | Blazor Web App (.NET 8+), standalone Blazor WebAssembly, Blazor Server (legacy), .NET MAUI Blazor Hybrid |
 | **iOS** | SwiftUI |
 | **Android** | Jetpack Compose |
 | **Cross-Platform** | React Native, Flutter |
 
 Just mention your preferred stack in the prompt, or let it default to HTML + Tailwind.
+
+### Blazor Support
+
+`blazor` is a first-class searchable stack with 99 curated guidelines covering the
+.NET 8+ component model, render modes, styling and CSS isolation, forms,
+navigation, accessibility, RTL, JavaScript interop, performance, enterprise
+layout, and the major Blazor component libraries.
+
+| Application model | .NET versions | What the guidance covers |
+|-------------------|---------------|--------------------------|
+| **Blazor Web App** | .NET 8, 9, 10 (detect `TargetFramework`) | Static SSR, Interactive Server, Interactive WebAssembly, Interactive Auto, prerendering, component-level render modes, routing, layouts, auth UI, forms |
+| **Blazor WebAssembly** | .NET 8, 9, 10 standalone | Client rendering, first-load UX, download budget, browser storage, offline-capable UX |
+| **Blazor Server** | .NET 8+ and legacy pre-.NET 8 | SignalR circuit state, reconnection UX, connection-loss feedback, long-running interactions |
+| **.NET MAUI Blazor Hybrid** | .NET 8+ MAUI | Android, iOS, Windows and macOS; WebView rendering, safe areas, touch, soft keyboard, offline data, native navigation — **no render modes** |
+
+**Component libraries:** MudBlazor, Radzen Blazor, Microsoft Fluent UI Blazor, Syncfusion
+Blazor, Telerik UI for Blazor, DevExpress Blazor and Blazorise. The skill inspects
+`.csproj` `PackageReference` entries and prefers the library the project already
+uses; it never assumes a library is installed, never mixes two libraries without an
+architectural reason, and never invents parameters for an unverified version.
+Native HTML plus CSS custom properties always remains valid.
+
+```bash
+# Blazor stack guidance
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "professional enterprise dashboard responsive layout" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "Blazor render mode interactive server prerender" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "Blazor CSS isolation component tokens" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "Blazor form validation accessible errors" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "MudBlazor theme palette dark mode" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "Radzen data grid server paging filter" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "MAUI Blazor Hybrid safe area touch" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "Blazor RTL Persian logical properties" --stack blazor
+
+# Blazor-ready design system and CSS token export
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "enterprise CRM admin dashboard" --design-system --framework blazor -p "Ops Console"
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "enterprise CRM admin dashboard" --design-system --tokens css > wwwroot/css/tokens.css
+```
+
+`--framework blazor` appends a Blazor implementation section to the generated
+design system (and to persisted `MASTER.md`): app-model detection, where to place
+the token file, CSS-isolation examples, `MudTheme`/Radzen/Fluent theming from the
+generated palette, interaction states, RTL and a verification checklist. The
+visual recommendations themselves stay identical to every other stack.
+`--tokens css` emits `:root` custom properties that the same section consumes.
+
+Prompts that activate Blazor guidance: *"Design a Blazor page"*, *"Build a Blazor
+dashboard"*, *"Improve my Blazor UI/UX"*, *"Create reusable Blazor components"*,
+*"Modernize an existing Blazor application"*, *"Create a professional MudBlazor
+dashboard"*, *"Build an enterprise Radzen application"*, *"Design a MAUI Blazor
+Hybrid application"*, *"Improve Blazor responsive layouts"*, *"Create a Blazor
+design system"*.
+
+See [docs/blazor.md](docs/blazor.md) for the full Blazor engineering guide.
 
 ## Examples
 
@@ -478,6 +532,9 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "chip badge overflow nowr
 python3 .claude/skills/ui-ux-pro-max/scripts/search.py "tableview binding" --stack javafx
 python3 .claude/skills/ui-ux-pro-max/scripts/search.py "atlantafx primer enterprise theme" --stack javafx
 python3 .claude/skills/ui-ux-pro-max/scripts/search.py "enterprise tableview density permission" --stack javafx
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "Blazor accessible dialog focus trap" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "Blazor performance virtualization" --stack blazor
+python3 .claude/skills/ui-ux-pro-max/scripts/search.py "enterprise CRM dashboard" --design-system --framework blazor
 ```
 
 Web-stack search is version-aware. Queries without an older major return current,

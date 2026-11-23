@@ -72,7 +72,8 @@ Extract key information from user request:
 - **Target audience**: C-end consumer users; consider age group, usage context (commute, leisure, work)
 - **Style keywords**: playful, vibrant, minimal, dark mode, content-first, immersive, etc.
 - **Stack**: whatever the user is actually building with — infer it from the project
-  (package.json, existing files, explicit request) or ask. Then load its rules with
+  (package.json, composer.json, pubspec.yaml, `*.csproj`/`*.razor` for Blazor, existing
+  files, explicit request) or ask. Then load its rules with
   `--stack <name>` (see "Available Stacks"). Do not assume React Native.
 - **Platform**: web or native app. Several sections below are scoped to App UI
   (iOS/Android/React Native/Flutter) and do not apply to desktop-web work —
@@ -245,7 +246,7 @@ python3 {{SCRIPT_PATH}} "virtualized list" --stack react-native
 
 ### Available Stacks
 
-`react`, `nextjs`, `vue`, `svelte`, `astro`, `swiftui`, `react-native`, `flutter`, `nuxtjs`, `nuxt-ui`, `html-tailwind`, `shadcn`, `jetpack-compose`, `threejs`, `angular`, `laravel`, `javafx`, `wpf`, `winui`, `avalonia`, `uno`, `uwp`
+`react`, `nextjs`, `vue`, `svelte`, `astro`, `swiftui`, `react-native`, `flutter`, `nuxtjs`, `nuxt-ui`, `html-tailwind`, `shadcn`, `jetpack-compose`, `threejs`, `angular`, `laravel`, `javafx`, `wpf`, `winui`, `avalonia`, `uno`, `uwp`, `blazor`
 
 **JavaFX enterprise examples:**
 
@@ -253,6 +254,34 @@ python3 {{SCRIPT_PATH}} "virtualized list" --stack react-native
 python3 {{SCRIPT_PATH}} "atlantafx primer enterprise theme" --stack javafx
 python3 {{SCRIPT_PATH}} "enterprise tableview density permission" --stack javafx
 ```
+
+**Blazor examples:**
+
+```bash
+python3 {{SCRIPT_PATH}} "professional enterprise dashboard responsive layout" --stack blazor
+python3 {{SCRIPT_PATH}} "Blazor render mode interactive server prerender" --stack blazor
+python3 {{SCRIPT_PATH}} "Blazor CSS isolation component tokens" --stack blazor
+python3 {{SCRIPT_PATH}} "Blazor form validation accessible errors" --stack blazor
+python3 {{SCRIPT_PATH}} "MudBlazor theme palette dark mode" --stack blazor
+python3 {{SCRIPT_PATH}} "Radzen data grid server paging filter" --stack blazor
+python3 {{SCRIPT_PATH}} "MAUI Blazor Hybrid safe area touch" --stack blazor
+python3 {{SCRIPT_PATH}} "Blazor RTL Persian logical properties" --stack blazor
+python3 {{SCRIPT_PATH}} "enterprise CRM dashboard" --design-system --framework blazor --tokens css
+```
+
+**Blazor application profiles:** Blazor Web App (.NET 8+: static SSR, Interactive Server, Interactive WebAssembly, Interactive Auto), standalone Blazor WebAssembly, legacy Blazor Server (pre-.NET 8), and .NET MAUI Blazor Hybrid (Android, iOS, Windows, macOS). Treat them as separate design profiles — never apply render modes to MAUI Hybrid or to a legacy Blazor Server project.
+
+**Blazor component libraries:** MudBlazor, Radzen Blazor, Microsoft Fluent UI Blazor, Syncfusion Blazor, Telerik UI for Blazor, DevExpress Blazor, Blazorise. Detect the installed library from `.csproj` `PackageReference` and prefer it; never add a second library for one component, and verify parameters against the installed version. Native HTML + CSS custom properties are always a valid option.
+
+**Mandatory Blazor workflow:**
+
+1. Inspect the solution and `*.csproj` `TargetFramework`; identify the app model and hosting/render mode.
+2. Detect installed CSS frameworks and component libraries; inspect existing tokens, `wwwroot/app.css`, `.razor.css`, layouts and shared components.
+3. Decide whether the UI is a public site or an internal business workspace before choosing landing-page or dashboard patterns.
+4. Search the visual domains (`product`, `style`, `color`, `typography`, `ux`), then `--stack blazor` for implementation rules; use `--design-system --framework blazor` for new or system-wide work.
+5. Implement with native Razor (`.razor` + `.razor.cs` + `.razor.css`), the installed library and CSS custom properties — no React/Vue/Angular patterns in Blazor files.
+6. Verify responsiveness at 375/390/768/1024/1280/1440, keyboard access, focus in dialogs, RTL, dark mode and render-mode behavior; then run `dotnet build` and existing tests.
+7. Preserve business logic, APIs, auth, authorization and component contracts; prefer incremental changes over rewrites.
 
 ---
 

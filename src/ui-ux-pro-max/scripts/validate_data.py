@@ -138,6 +138,13 @@ STACK_OFFICIAL_HOSTS = {
     "javafx": {"openjfx.io", "mkpaz.github.io", "www.w3.org"},
     "threejs": {"threejs.org", "github.com", "www.npmjs.com", "www.w3.org"},
     "laravel": {"laravel.com"},
+    # Blazor guidance is anchored to Microsoft Learn; component-library rows cite
+    # each vendor's own documentation for the library API being recommended.
+    "blazor": {
+        "learn.microsoft.com", "mudblazor.com", "blazor.radzen.com",
+        "www.fluentui-blazor.net", "www.syncfusion.com", "www.telerik.com",
+        "docs.devexpress.com", "blazorise.com", "www.w3.org",
+    },
 }
 REQUIRED_UX_GUIDANCE = {
     "Focus Not Obscured (Minimum)": "Web",

@@ -26,7 +26,7 @@ FLAGS = {
     "--domain", "-d", "--stack", "-s", "--max-results", "-n", "--json",
     "--full", "--design-system", "-ds", "--project-name", "-p", "--format",
     "-f", "--persist", "--page", "--output-dir", "-o", "--force", "--preview",
-    "--variance", "--motion", "--density", "--tokens",
+    "--variance", "--motion", "--density", "--tokens", "--framework",
 
 }
 PLATFORM_COUNT = 25

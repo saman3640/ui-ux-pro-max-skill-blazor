@@ -325,6 +325,21 @@
 - `map-clustering` - Cluster dense points at low zoom with counts; serve large geodata as vector tiles instead of huge GeoJSON
 - `map-reduced-motion` - Keep camera flights non-essential and skip custom map animation loops under prefers-reduced-motion
 
+### 11. Blazor UI (Implementation Stack)
+
+- `blazor-app-model` - Identify the model first: Blazor Web App (static SSR / Interactive Server / WebAssembly / Auto), standalone WebAssembly, legacy Blazor Server or MAUI Hybrid; never apply Web App render modes to MAUI or legacy Server
+- `blazor-render-mode` - Choose the render mode per interactive boundary; keep content pages static and handle prerender double initialization
+- `razor-syntax` - Use @page, @bind-Value, @onclick, @if, @foreach, @key, @ref, @typeparam and @rendermode; never write JSX, Vue directives or Angular templates in .razor files
+- `component-architecture` - Split pages into components with .razor.cs code-behind and .razor.css; parameters are immutable inputs and child events use EventCallback<T>
+- `css-isolation` - Scope component styles in .razor.css; share design tokens from wwwroot/css/tokens.css as CSS custom properties
+- `blazor-forms` - Use EditForm, InputText/InputNumber/InputSelect/InputDate, DataAnnotationsValidator, ValidationMessage and a busy submit state
+- `blazor-accessibility` - Semantic HTML, visible focus, dialog focus trapping, aria-live for async results, 44px targets, WCAG 2.2 AA
+- `blazor-rtl` - dir/lang on html, logical CSS properties, mirrored directional icons and culture-aware dates/numbers for Persian, Arabic and Hebrew
+- `blazor-interop` - Prefer C#; use IJSRuntime modules in OnAfterRenderAsync and dispose IJSObjectReference; never mutate Blazor-owned DOM
+- `blazor-performance` - Virtualize large lists, @key, ShouldRender, render-mode cost and WebAssembly payload size
+- `component-library` - Detect the installed library from .csproj; theme through MudTheme, RadzenTheme, FluentDesignTheme or the vendor theme; never mix libraries or add one for a single component
+- `maui-hybrid` - Separate profile: WebView rendering, safe areas, touch, soft keyboard, offline data and native navigation
+
 ## How to Use
 
 Search specific domains using the CLI tool below.
